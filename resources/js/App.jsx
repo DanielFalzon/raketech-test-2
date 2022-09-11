@@ -1,13 +1,22 @@
 // resources/js/App.jsx
 import React from 'react';
-import ReactDOM from 'react-dom/'
+import ReactDOM from 'react-dom/client';
+import '../sass/app.scss';
+
 
 export default function App(){
     return(
-        <h1>How To Install React in Laravel 9 with Vite</h1>
+        <div>
+            <h1>How To Install React in Laravel 9 with Vite</h1>
+        </div>
+        
     );
 }
 
-if(document.getElementById('root')){
-    ReactDOM.createRoot(document.getElementById('root')).render(<App />)
-}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
