@@ -1,13 +1,19 @@
-// resources/js/App.jsx
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import '../sass/app.scss';
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from './pages/home-page/home-page.component';
+import LeaguesPage from './pages/leagues-page/leagues-page.component';
+import TeamsPage from './pages/teams-page/teams-page.component';
 
 export default function App(){
     return(
         <div>
-            <h1>How To Install React in Laravel 9 with Vite</h1>
+            <Routes>
+              <Route exact path="/" element={<HomePage />} />
+              <Route path="/leagues" element={<LeaguesPage />} />
+              <Route path="/teams" element={<TeamsPage />} />
+            </Routes>
         </div>
         
     );
@@ -17,6 +23,8 @@ export default function App(){
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
