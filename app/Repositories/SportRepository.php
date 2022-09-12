@@ -15,8 +15,10 @@ class SportRepository implements SportRepositoryInterface
 
         $result = $response->collect('sports')->map(function ($item, $key){
             return collect($item)->only(['strSport', 'strSportIconGreen', 'strSportDescription']);
+        })->sortBy(function ($item, $key) {
+            return $item->get('strSport');
         });
 
-        return $result->all();
+        return $result->values()->all();
     }
 }

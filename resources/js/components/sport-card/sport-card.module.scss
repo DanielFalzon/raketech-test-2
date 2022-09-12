@@ -1,1 +1,16 @@
 @import "/resources/sass/_variables.scss";
+
+.sportCard {
+    height: 50px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px;
+    margin-bottom: 1px;
+    background-color: $primary-color;
+
+    .label{
+        color: white;
+        font-weight: bold;
+    }
+}

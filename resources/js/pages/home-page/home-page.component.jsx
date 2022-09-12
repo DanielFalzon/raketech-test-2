@@ -5,6 +5,7 @@ import SportCard from "../../components/sport-card/sport-card.component";
 
 const HomePage = () => {
     const [sports, setSports] = useState([]);
+    const [filter, setFilter] = useState("");
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -22,18 +23,28 @@ const HomePage = () => {
         })
     }, []);
 
+    const handleFilterChange = (value) => {
+        console.log(value);
+        setFilter(value);
+    }
+
     return(
         <div>
             <Header />
             <h1>
                 Browse Sports
             </h1>
+            <input type="text" value={filter} onChange={
+                event => handleFilterChange(event.target.value)
+            } />
             <div>
                 {loading && <span>Loading...</span>}
                 {sports.map(function(item, i){
-                    return(
-                        <SportCard key={i} item={item}/>
-                    )
+                    if(item.strSport.includes(filter)){
+                        return(
+                            <SportCard key={i} item={item}/>
+                        )
+                    }
                 })}
             </div>
         </div>

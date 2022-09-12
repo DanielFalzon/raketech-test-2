@@ -4,8 +4,13 @@
 // Variables
 @import 'variables';
 
+html {
+    height:100%;
+}
+
 body{
-    margin: 0px;
+    min-height: 100%;
+    margin: 0;
 }
 
 h1{
