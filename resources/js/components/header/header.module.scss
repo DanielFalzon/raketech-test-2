@@ -1,0 +1,15 @@
+@import "/resources/sass/_variables.scss";
+
+.header{
+    height: 80px;
+    width: 100%;
+    background-color: $primary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.logo {
+    max-width: 250px;
+}

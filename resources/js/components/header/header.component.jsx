@@ -1,8 +1,11 @@
 import React from "react";
+import styles from "./header.module.scss";
 
 const Header = () => {
     return(
-        <h1>Header</h1>
+        <div className={styles.header}>   
+            <img className={styles.logo} src='/images/RaketechLogo.png' alt={"Raketech Logo"}/>
+        </div>
     )
 }
-export default HomePage;
+export default Header;
