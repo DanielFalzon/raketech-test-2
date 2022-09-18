@@ -11,7 +11,7 @@ export default function App(){
         <div>
             <Routes>
               <Route exact path="/" element={<HomePage />} />
-              <Route path="/leagues" element={<LeaguesPage />} />
+              <Route path="/leagues/:sport" element={<LeaguesPage />} />
               <Route path="/teams" element={<TeamsPage />} />
             </Routes>
         </div>

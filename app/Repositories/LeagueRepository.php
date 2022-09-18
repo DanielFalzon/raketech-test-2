@@ -16,6 +16,8 @@ class LeagueRepository implements LeagueRepositoryInterface
 
         $result = $response->collect('leagues')->map(function ($item, $key){
             return collect($item)->only(['strLeague', 'strSport']);
+        })->sortBy(function ($item, $key) {
+            return $item->get('strLeague');
         });
 
         return $result;
@@ -24,11 +26,17 @@ class LeagueRepository implements LeagueRepositoryInterface
     public function getLeagueBySport(?string $sportSlug)
     {
         $result = $this->getAllLeagues();
+
         if(isset($sportSlug)){
             $result = $result->filter(function ($item, $key) use ($sportSlug) {
                 return $item['strSport'] == $sportSlug;
             });
         }
-        return $result->all();
+        
+        $result->sortBy(function ($item, $key) {
+            return $item->get('strLeague');
+        });
+
+        return $result->values()->all();
     }
 }
