@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import Header from "../../components/header/header.component";
 import SportCard from "../../components/sport-card/sport-card.component";
 
+import styles from './home-page.module.scss';
+
 const HomePage = () => {
     const [sports, setSports] = useState([]);
     const [filter, setFilter] = useState("");
@@ -34,9 +36,13 @@ const HomePage = () => {
             <h1>
                 Browse Sports
             </h1>
-            <input type="text" value={filter} onChange={
-                event => handleFilterChange(event.target.value)
-            } />
+            <div className={styles.searchBoxContainer}>
+                <img className={styles.searchIcon} src='/images/SearchIcon.svg' alt={"Raketech Logo"}/>
+                <input type="text" className={styles.searchBox} value={filter} onChange={
+                    event => handleFilterChange(event.target.value)
+                } />
+            </div>
+            
             <div>
                 {loading && <span>Loading...</span>}
                 {sports.map(function(item, i){
