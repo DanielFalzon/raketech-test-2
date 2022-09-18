@@ -16,8 +16,10 @@ class TeamRepository implements TeamRepositoryInterface
         $response->throw();
 
         $result = $response->collect('teams')->map(function ($item, $key){
-            return collect($item)->only(['strTeam', 'intFormedYear', 'strStadium', 'strStadiumThumb', 'strStadiumDescription',
+            return collect($item)->only(['idTeam', 'strTeam', 'intFormedYear', 'strStadium', 'strStadiumThumb', 'strStadiumDescription',
                 'strFacebook', 'strTwitter', 'strInstagram', 'strDescriptionEn', 'strWebsite', 'strTeamBadge', 'strGender', 'strCountry']);
+        })->mapWithKeys(function($item, $key){
+            return [$item['idTeam'] => $item];
         });
 
         return $result->all();

@@ -40,13 +40,13 @@ const LeaguesPage = () => {
                 searchValue={filter}
                 onChange={handleFilterChange}
             />
-            
+
             <div>
                 {loading && <span>Loading...</span>}
                 {leagues.map(function(item, i){
                     if(item.strLeague.includes(filter)){
                         return(
-                            <Card key={i} goTo="/leagues" text={item.strLeague} icon={false}/>
+                            <Card key={i} goTo="/teams" text={item.strLeague} icon={false}/>
                         )
                     }
                 })}
