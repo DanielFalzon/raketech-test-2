@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
+import styles from './team-details-page.module.scss';
+import Header from "../../components/header/header.component";
 
 const TeamDetailsPage = () => {
     const {teamId} = useParams();
@@ -12,10 +14,21 @@ const TeamDetailsPage = () => {
         console.log(allData[teamId]);
     },[]);
 
+    const divStyle = {
+        backgroundImage: 'url(' + team.strStadiumThumb + ')',
+    };
+
     return(
-        <>
-        <h1>{team.strTeam}</h1>
-        </>
+        <div>
+            <Header />
+            <div className={styles.banner} style={divStyle}>
+                <div className={styles.bannerContainer}>
+                    <img className={styles.bannerLogo} src={team.strTeamBadge} alt={`${team.strTeam} Badge`} />
+                    <h1>{team.strTeam}</h1>
+                    {team.intFormedYear}
+                </div>
+            </div>
+        </div>
     )
 }
 

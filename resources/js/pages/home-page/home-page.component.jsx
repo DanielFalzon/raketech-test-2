@@ -4,8 +4,6 @@ import Header from "../../components/header/header.component";
 import Card from "../../components/card/card.component";
 import SearchBar from "../../components/search-bar/search-bar.component";
 
-import styles from './home-page.module.scss';
-
 const HomePage = () => {
     const [sports, setSports] = useState([]);
     const [filter, setFilter] = useState("");
