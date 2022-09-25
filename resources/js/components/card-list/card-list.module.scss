@@ -1,0 +1,9 @@
+@import "/resources/sass/_variables.scss";
+
+@media (min-width: $mobile-width){
+    .cardListContainer {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, auto);
+        grid-gap: 1em;
+    };
+};

@@ -16,7 +16,7 @@
     }
 }
 
-@media (min-width: 768px){
+@media (min-width: $mobile-width){
     .sportCard {
         width: 212px;
         height: 113px;

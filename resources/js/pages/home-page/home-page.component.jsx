@@ -53,10 +53,8 @@ const HomePage = () => {
                 searchValue={filter}
                 onChange={handleFilterChange}
             />
-            <div>
-                {loading && <Loader />}
-                <CardList callback={cardLoader} />
-            </div>
+            {loading && <Loader />}
+            <CardList callback={cardLoader} />
         </>
     )
 }
