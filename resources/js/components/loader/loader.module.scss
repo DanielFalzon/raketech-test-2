@@ -1,0 +1,31 @@
+@import "/resources/sass/_variables.scss";
+
+.loader {
+    display: inline-block;
+    border: 5px solid $primary-color;
+    border-radius: 50%;
+    border-top: 5px solid $secondry-color;
+    width: 50px;
+    height: 50px;
+    animation-name: spin;
+    animation-duration: 2000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+.loaderContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}

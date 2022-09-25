@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../../components/header/header.component";
 import Card from "../../components/card/card.component";
 import SearchBar from "../../components/search-bar/search-bar.component";
+import Loader from "../../components/loader/loader.component";
 
 import { useParams } from "react-router-dom";
 
@@ -42,7 +43,7 @@ const LeaguesPage = () => {
             />
 
             <div>
-                {loading && <span>Loading...</span>}
+                {loading && <Loader />}
                 {leagues.map(function(item, i){
                     if(item.strLeague.includes(filter)){
                         return(

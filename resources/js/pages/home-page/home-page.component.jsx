@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../../components/header/header.component";
 import Card from "../../components/card/card.component";
 import SearchBar from "../../components/search-bar/search-bar.component";
+import Loader from "../../components/loader/loader.component";
 
 const HomePage = () => {
     const [sports, setSports] = useState([]);
@@ -40,7 +41,7 @@ const HomePage = () => {
                 onChange={handleFilterChange}
             />
             <div>
-                {loading && <span>Loading...</span>}
+                {loading && <Loader />}
                 {sports.map(function(item, i){
                     if(item.strSport.includes(filter)){
                         return(
