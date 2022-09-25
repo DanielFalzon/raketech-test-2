@@ -4,6 +4,7 @@ import Header from "../../components/header/header.component";
 import Card from "../../components/card/card.component";
 import SearchBar from "../../components/search-bar/search-bar.component";
 import Loader from "../../components/loader/loader.component";
+import CardList from "../../components/card-list/card-list.component";
 
 const HomePage = () => {
     const [sports, setSports] = useState([]);
@@ -29,6 +30,18 @@ const HomePage = () => {
         setFilter(value);
     }
 
+    const cardLoader = () => {
+        let el = sports.map(function(item, i){
+            if(item.strSport.includes(filter)){
+                return(
+                    <Card key={i} goTo="/leagues" text={item.strSport} icon={item.strSportIconGreen}/>
+                )
+            }
+        })
+
+        return el;
+    }
+
     //TODO: Create the search box as a component
     return(
         <>
@@ -42,13 +55,7 @@ const HomePage = () => {
             />
             <div>
                 {loading && <Loader />}
-                {sports.map(function(item, i){
-                    if(item.strSport.includes(filter)){
-                        return(
-                            <Card key={i} goTo="/leagues" text={item.strSport} icon={item.strSportIconGreen}/>
-                        )
-                    }
-                })}
+                <CardList callback={cardLoader} />
             </div>
         </>
     )

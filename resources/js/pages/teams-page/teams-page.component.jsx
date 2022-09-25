@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 
 import Header from "../../components/header/header.component";
 import Card from "../../components/card/card.component";
+import CardList from "../../components/card-list/card-list.component";
 import SearchBar from "../../components/search-bar/search-bar.component";
 import Loader from "../../components/loader/loader.component";
 
@@ -34,20 +35,25 @@ const TeamsPage = () => {
         setFilter(value);
     }
 
+    const cardLoader = () => {
+        let el = Object.entries(teams).map(([i,item]) => {
+            if(item.strTeam.includes(filter)){
+                    return (<Card key={i} goTo="/team" text={item.strTeam} id={item.idTeam} icon={item.strTeamBadge}/>)
+            }
+        });
+        return el;
+    }
+
     return(
         <>
             <Header />
             <h1>Browse {league} Teams</h1>
-            <SearchBar 
+            {!loading && <SearchBar 
                 searchValue={filter}
                 onChange={handleFilterChange}
-            />
+            />}
             {loading && <Loader />}
-            {Object.entries(teams).map(([i,item]) => {
-                    if(item.strTeam.includes(filter)){
-                            return (<Card key={i} goTo="/team" text={item.strTeam} id={item.idTeam} icon={item.strTeamBadge}/>)
-                    }
-                })}
+            <CardList callback={cardLoader} />
         </>
     )
 }

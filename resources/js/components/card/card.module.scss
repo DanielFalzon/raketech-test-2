@@ -15,3 +15,10 @@
         font-weight: bold;
     }
 }
+
+@media (min-width: 768px){
+    .sportCard {
+        width: 212px;
+        height: 113px;
+    };
+};
