@@ -9,14 +9,14 @@ import TeamDetailsPage from './pages/team-details-page/team-details-page.compone
 
 export default function App(){
     return(
-        <div>
+        <>
             <Routes>
               <Route exact path="/" element={<HomePage />} />
               <Route path="/leagues/:sport" element={<LeaguesPage />} />
               <Route path="/teams/:league" element={<TeamsPage />} />
               <Route path="/team/:teamId" element={<TeamDetailsPage />} />
             </Routes>
-        </div>
+        </>
         
     );
 }

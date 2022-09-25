@@ -32,7 +32,7 @@ const LeaguesPage = () => {
     }
 
     return(
-        <div>
+        <>
             <Header />
             <h1>Browse {sport} Leagues</h1>
 
@@ -51,7 +51,7 @@ const LeaguesPage = () => {
                     }
                 })}
             </div>
-        </div>
+        </>
         
     )
 }

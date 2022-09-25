@@ -30,7 +30,7 @@ const HomePage = () => {
 
     //TODO: Create the search box as a component
     return(
-        <div>
+        <>
             <Header />
             <h1>
                 Browse Sports
@@ -49,7 +49,7 @@ const HomePage = () => {
                     }
                 })}
             </div>
-        </div>
+        </>
     )
 }
 export default HomePage;
