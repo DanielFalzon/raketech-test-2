@@ -1,9 +1,13 @@
 @import "/resources/sass/_variables.scss";
 
+
+//https://coryrylan.com/blog/css-gap-space-with-flexbox
 @media (min-width: $mobile-width){
     .cardListContainer {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, auto);
-        grid-gap: 1em;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        max-width: 1200px;
     };
 };

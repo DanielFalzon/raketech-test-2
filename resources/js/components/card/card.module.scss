@@ -20,5 +20,11 @@
     .sportCard {
         width: 212px;
         height: 113px;
+        transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
     };
+
+    .sportCard:hover{
+        transform: scale(1.05);
+        filter: brightness(1.6);
+    }
 };
